@@ -1,7 +1,7 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue';
+import UserListing from './components/UserListing.vue';
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
+  <UserListing />
 </template>

@@ -5,5 +5,9 @@ export const useUserStore = defineStore('user', {
     isLoaded: false,
     users: [],
   }),
-  actions: {},
+  actions: {
+    deleteUser(userId) {
+      this.users = this.users.filter((user) => user.id !== userId);
+    },
+  },
 });

@@ -1,8 +1,16 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 import UserView from '@/views/UserView.vue';
+import AddUserView from '@/views/AddUserView.vue';
 
-const routes = [{ path: '/', name: 'UserView', component: UserView }, {}];
+const routes = [
+  { path: '/', name: 'UserView', component: UserView },
+  {
+    path: '/edit',
+    name: 'AddUserView',
+    component: AddUserView,
+  },
+];
 
 const router = createRouter({
   history: createWebHashHistory(),

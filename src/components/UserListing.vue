@@ -3,7 +3,9 @@
   <div>
     <div>
       <input type="text" placeholder="Search for users" class="bg-gray-200" />
-      <button class="bg-green-500 rounded-md p-2">+ Add User</button>
+      <router-link to="/edit" class="bg-green-500 rounded-md p-2"
+        >+ Add User</router-link
+      >
     </div>
     <ul>
       <li v-for="user in users" :key="user.id" class="flex items-center">

@@ -1,15 +1,12 @@
 <template>
-  <div>TEST ADDUSERVIEW</div>
-  <div>TEST ADDUSERVIEW</div>
-  <div>TEST ADDUSERVIEW</div>
-  <div>TEST ADDUSERVIEW</div>
-  <div>TEST ADDUSERVIEW</div>
-  <router-link to="/">back</router-link>
+  <user-card />
 </template>
 
 <script>
+import UserCard from '@/components/UserCard.vue';
+
 export default {
   name: 'AddUserView',
-  //   components: { TheHero },
+  components: { UserCard },
 };
 </script>

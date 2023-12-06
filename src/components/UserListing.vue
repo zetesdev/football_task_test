@@ -57,6 +57,4 @@ const deleteUser = (userId) => {
   console.log('Delete user with ID:', userId);
   userStore.deleteUser(userId);
 };
-
-console.log(users);
 </script>

@@ -1,7 +1,4 @@
-<script setup>
-import UserListing from './components/UserListing.vue';
-</script>
-
 <template>
-  <UserListing />
+  <h1>test</h1>
+  <router-view />
 </template>

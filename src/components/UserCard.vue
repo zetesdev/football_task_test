@@ -17,7 +17,10 @@
           class="bg-gray-100"
         />
 
-        <router-link to="/" class="bg-green-500">back</router-link>
+        <router-link to="/" class="bg-green-500">{{ interpolate }}</router-link>
+        <router-link to="/" class="bg-yellow-300"
+          >TEMPORARY BACK BUTTON</router-link
+        >
       </div>
       <!-- avatar card -->
       <div>
@@ -33,7 +36,16 @@
 </template>
 
 <script setup>
-defineProps({
+import { computed, watchEffect, onMounted } from 'vue';
+
+const interpolate = 'testing interpolation';
+
+const props = defineProps({
   cardType: String,
 });
+
+console.log(props.cardType);
+// watchEffect(() => {
+//   console.log(props.cardType);
+// });
 </script>

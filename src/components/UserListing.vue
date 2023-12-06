@@ -4,7 +4,9 @@
     <div>
       <div>
         <input type="text" placeholder="Search for users" class="bg-gray-200" />
-        <router-link to="/edit" class="bg-green-500 rounded-md p-2"
+        <router-link
+          :to="`/edit/${encodeURIComponent('Add User')}`"
+          class="bg-green-500 rounded-md p-2"
           >+ Add User</router-link
         >
       </div>
@@ -16,7 +18,7 @@
             class="w-10 h-10 rounded-full mr-4"
           />
           {{ user.first_name }} {{ user.last_name }} ID temp: {{ user.id }}
-          <button class="bg-orange-500" @click="editUser(user.id)">edit</button>
+          <!-- <button class="bg-orange-500" @click="editUser(user.id)">edit</button> -->
           <button class="bg-red-500" @click="deleteUser(user.id)">
             delete
           </button>

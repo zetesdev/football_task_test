@@ -6,7 +6,7 @@ import AddUserView from '@/views/AddUserView.vue';
 const routes = [
   { path: '/', name: 'UserListView', component: UserListView },
   {
-    path: '/edit',
+    path: '/edit/:cardType',
     name: 'AddUserView',
     component: AddUserView,
     props: true,

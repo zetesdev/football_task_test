@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-200 h-screen">
-    <h1>{{ cardType }}</h1>
+    <h1>{{ panel }}</h1>
     <div class="bg-white">
       <!-- inputs card -->
       <div class="flex">
@@ -16,8 +16,7 @@
           placeholder="last name placeholder"
           class="bg-gray-100"
         />
-
-        <router-link to="/" class="bg-green-500">{{ interpolate }}</router-link>
+        <router-link to="/" class="bg-green-500">{{ action }}</router-link>
         <router-link to="/" class="bg-yellow-300"
           >TEMPORARY BACK BUTTON</router-link
         >
@@ -38,14 +37,23 @@
 <script setup>
 import { computed, watchEffect, onMounted } from 'vue';
 
-const interpolate = 'testing interpolation';
+import { useUserStore } from '@/stores/user.js';
 
 const props = defineProps({
   cardType: String,
 });
 
-console.log(props.cardType);
-// watchEffect(() => {
-//   console.log(props.cardType);
-// });
+const panel = props.cardType !== 'Add User' ? 'Edit User' : 'Add User';
+const action = props.cardType !== 'Add User' ? 'Update Details' : 'Add User';
+
+const userStore = useUserStore();
+
+console.log(action);
+// console.log(userStore.users);
+
+// const selectedUser = userStore.users.find(
+//   (user) => user.id.toString() === props.cardType
+// );
+
+// console.log(selectedUser);
 </script>

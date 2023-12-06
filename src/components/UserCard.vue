@@ -27,7 +27,7 @@
         <img
           src="https://reqres.in/img/faces/7-image.jpg"
           alt="should be avatar"
-          class="w-10 h-10 rounded-full mr-4"
+          class="w-20 h-20 rounded-full mr-4"
         />
         <button class="bg-gray-300">change photo</button>
       </div>

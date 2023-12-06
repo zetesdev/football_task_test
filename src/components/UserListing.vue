@@ -17,7 +17,12 @@
             alt="should be avatar"
             class="w-10 h-10 rounded-full mr-4"
           />
-          {{ user.first_name }} {{ user.last_name }} ID temp: {{ user.id }}
+          {{ user.first_name }} {{ user.last_name }} ID: {{ user.id }}
+          <router-link
+            :to="`/edit/${encodeURIComponent(user.id)}`"
+            class="bg-green-500"
+            >edit</router-link
+          >
           <!-- <button class="bg-orange-500" @click="editUser(user.id)">edit</button> -->
           <button class="bg-red-500" @click="deleteUser(user.id)">
             delete

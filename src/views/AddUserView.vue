@@ -1,6 +1,4 @@
-<template>
-  <user-card />
-</template>
+<template><user-card /></template>
 
 <script>
 import UserCard from '@/components/UserCard.vue';

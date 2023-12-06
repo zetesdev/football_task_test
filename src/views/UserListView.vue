@@ -6,7 +6,7 @@
 import UserListing from '@/components/UserListing.vue';
 
 export default {
-  name: 'UserView',
+  name: 'UserListView',
   components: { UserListing },
 };
 </script>

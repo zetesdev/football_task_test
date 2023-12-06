@@ -9,6 +9,7 @@ const routes = [
     path: '/edit',
     name: 'AddUserView',
     component: AddUserView,
+    props: true,
   },
 ];
 

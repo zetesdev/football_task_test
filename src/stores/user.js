@@ -23,11 +23,11 @@ export const useUserStore = defineStore('user', {
         this.users[userIndex].last_name = newLastName;
       }
     },
-    addUser() {
+    addUser(newFirstName, newLastName) {
       const newUser = {
         id: 100,
-        first_name: 'Janusz',
-        last_name: 'Nosacz',
+        first_name: newFirstName,
+        last_name: newLastName,
         avatar: 'https://reqres.in/img/faces/11-image.jpg',
       };
 

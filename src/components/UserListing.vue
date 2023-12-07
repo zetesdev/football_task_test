@@ -23,9 +23,7 @@
             class="bg-green-500"
             >edit</router-link
           >
-          <!-- <button class="bg-orange-500" @click="editUser">
-            TEST FIRSTNAME
-          </button> -->
+          <!-- <button class="bg-orange-500" @click="newUser">TEST NEW USER</button> -->
           <button class="bg-red-500" @click="deleteUser(user.id)">
             delete
           </button>
@@ -66,6 +64,10 @@ const users = computed(() => userStore.users);
 
 // const editUser = () => {
 //   userStore.updateFirstName();
+// };
+
+// const newUser = () => {
+//   userStore.addUser();
 // };
 
 const deleteUser = (userId) => {

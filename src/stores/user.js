@@ -6,6 +6,7 @@ export const useUserStore = defineStore('user', {
     users: [],
   }),
   actions: {
+    ////////////////////TO DO REQRES API CALLS////////////////////////
     deleteUser(userId) {
       this.users = this.users.filter((user) => user.id !== userId);
     },
@@ -21,6 +22,16 @@ export const useUserStore = defineStore('user', {
       if (userIndex !== -1) {
         this.users[userIndex].last_name = newLastName;
       }
+    },
+    addUser() {
+      const newUser = {
+        id: 100,
+        first_name: 'Janusz',
+        last_name: 'Nosacz',
+        avatar: 'https://reqres.in/img/faces/11-image.jpg',
+      };
+
+      this.users.push(newUser);
     },
   },
 });

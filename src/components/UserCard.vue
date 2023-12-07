@@ -1,6 +1,7 @@
 <template>
   <div class="bg-gray-200 h-screen">
     <h1>{{ panel }}</h1>
+
     <div class="bg-white">
       <!-- inputs card -->
       <div class="flex">
@@ -18,9 +19,13 @@
           placeholder="last name"
           class="bg-gray-100"
         />
-        <router-link to="/" @click="updateUser" class="bg-green-500">{{
-          action
-        }}</router-link>
+        <router-link
+          to="/"
+          @click="action === 'Update Details' ? updateUser() : newUser()"
+          class="bg-green-500"
+        >
+          {{ action }}
+        </router-link>
       </div>
       <!-- avatar card -->
       <div>
@@ -60,5 +65,9 @@ const newLastName = ref('');
 const updateUser = () => {
   userStore.updateFirstName(selectedUser.id, newFirstName.value);
   userStore.updateLastName(selectedUser.id, newLastName.value);
+};
+
+const newUser = () => {
+  userStore.addUser();
 };
 </script>

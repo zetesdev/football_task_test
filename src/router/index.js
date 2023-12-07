@@ -9,7 +9,7 @@ const routes = [
     path: '/edit/:cardType',
     name: 'AddUserView',
     component: AddUserView,
-    // props: true,
+    props: true,
   },
 ];
 

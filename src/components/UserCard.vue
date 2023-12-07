@@ -46,9 +46,10 @@ const props = defineProps({
 const panel = props.cardType !== 'Add User' ? 'Edit User' : 'Add User';
 const action = props.cardType !== 'Add User' ? 'Update Details' : 'Add User';
 
-const userStore = useUserStore();
+// const userStore = useUserStore();
 
-console.log(action);
+console.log(props.cardType);
+// console.log(action);
 // console.log(userStore.users);
 
 // const selectedUser = userStore.users.find(

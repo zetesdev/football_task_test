@@ -7,9 +7,14 @@
         <h2>First Name</h2>
         <input
           type="text"
+          v-model="newFirstName"
           placeholder="first name placeholder"
           class="bg-gray-100"
         />
+        <!-- temp button -->
+        <button @click="updateUserFirstName" class="bg-red-300">
+          Update First Name
+        </button>
         <h2>Last name</h2>
         <input
           type="text"
@@ -35,7 +40,7 @@
 </template>
 
 <script setup>
-import { computed, watchEffect, onMounted } from 'vue';
+import { ref } from 'vue';
 
 import { useUserStore } from '@/stores/user.js';
 
@@ -54,5 +59,11 @@ const selectedUser = userStore.users.find(
   (user) => user.id.toString() === props.cardType
 );
 
-console.log(selectedUser);
+// console.log(selectedUser);
+
+const newFirstName = ref(''); // temp new name
+
+const updateUserFirstName = () => {
+  userStore.updateFirstName();
+};
 </script>

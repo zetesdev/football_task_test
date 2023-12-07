@@ -23,7 +23,9 @@
             class="bg-green-500"
             >edit</router-link
           >
-          <!-- <button class="bg-orange-500" @click="editUser(user.id)">edit</button> -->
+          <button class="bg-orange-500" @click="editUser">
+            TEST FIRSTNAME
+          </button>
           <button class="bg-red-500" @click="deleteUser(user.id)">
             delete
           </button>
@@ -62,8 +64,8 @@ onMounted(async () => {
 
 const users = computed(() => userStore.users);
 
-const editUser = (userId) => {
-  console.log('Edit user with ID:', userId);
+const editUser = () => {
+  userStore.updateFirstName();
 };
 
 const deleteUser = (userId) => {

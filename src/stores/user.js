@@ -9,5 +9,17 @@ export const useUserStore = defineStore('user', {
     deleteUser(userId) {
       this.users = this.users.filter((user) => user.id !== userId);
     },
+
+    updateFirstName() {
+      console.log(this.users[2].first_name);
+
+      //some tests
+      const randomLetter = String.fromCharCode(
+        65 + Math.floor(Math.random() * 26)
+      );
+      if (this.users.length > 2 && this.users[2]) {
+        this.users[2].first_name = randomLetter;
+      }
+    },
   },
 });

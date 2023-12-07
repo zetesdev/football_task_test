@@ -8,23 +8,19 @@
         <input
           type="text"
           v-model="newFirstName"
-          placeholder="first name placeholder"
+          placeholder="first name"
           class="bg-gray-100"
         />
-        <!-- temp button -->
-        <button @click="updateUserFirstName" class="bg-red-300">
-          Update First Name
-        </button>
         <h2>Last name</h2>
         <input
           type="text"
-          placeholder="last name placeholder"
+          v-model="newLastName"
+          placeholder="last name"
           class="bg-gray-100"
         />
-        <router-link to="/" class="bg-green-500">{{ action }}</router-link>
-        <router-link to="/" class="bg-yellow-300"
-          >TEMPORARY BACK BUTTON</router-link
-        >
+        <router-link to="/" @click="updateUser" class="bg-green-500">{{
+          action
+        }}</router-link>
       </div>
       <!-- avatar card -->
       <div>
@@ -58,13 +54,11 @@ const selectedUser = userStore.users.find(
   (user) => user.id.toString() === props.cardType
 );
 
-const newFirstName = ref(''); // temp new name
+const newFirstName = ref('');
+const newLastName = ref('');
 
-const updateUserFirstName = () => {
-  // alert(newFirstName.value);
+const updateUser = () => {
   userStore.updateFirstName(selectedUser.id, newFirstName.value);
-  // if (selectedUser && newFirstName.value) {
-  //   userStore.updateFirstName(selectedUser.id, newFirstName.value);
-  // }
+  userStore.updateLastName(selectedUser.id, newLastName.value);
 };
 </script>

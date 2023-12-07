@@ -10,16 +10,16 @@ export const useUserStore = defineStore('user', {
       this.users = this.users.filter((user) => user.id !== userId);
     },
 
-    updateFirstName() {
-      //some tests
-      const randomLetter = String.fromCharCode(
-        65 + Math.floor(Math.random() * 26)
-      );
-      if (this.users.length > 2 && this.users[2]) {
-        this.users[2].first_name = randomLetter;
-      }
+    // updateFirstName(userId, newFirstName) {
+    //     console.log(userId, newFirstName);
+    //     this.users[2].first_name = newFirstName;
+    //   },
 
-      console.log(this.users[2].first_name);
+    updateFirstName(userId, newFirstName) {
+      const userIndex = this.users.findIndex((user) => user.id === userId);
+      if (userIndex !== -1) {
+        this.users[userIndex].first_name = newFirstName;
+      }
     },
   },
 });

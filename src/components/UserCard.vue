@@ -41,29 +41,30 @@
 
 <script setup>
 import { ref } from 'vue';
-
 import { useUserStore } from '@/stores/user.js';
 
 const props = defineProps({
   cardType: String,
 });
 
-const panel = props.cardType !== 'Add User' ? 'Edit User' : 'Add User';
-const action = props.cardType !== 'Add User' ? 'Update Details' : 'Add User';
-
 const DEFAULT_AVATAR =
   'https://www.shareicon.net/data/128x128/2015/09/24/106423_user_512x512.png';
+
+const panel = props.cardType !== 'Add User' ? 'Edit User' : 'Add User';
+const action = props.cardType !== 'Add User' ? 'Update Details' : 'Add User';
 
 const userStore = useUserStore();
 const selectedUser = userStore.users.find(
   (user) => user.id.toString() === props.cardType
 );
 
-// console.log(selectedUser);
-
 const newFirstName = ref(''); // temp new name
 
 const updateUserFirstName = () => {
-  userStore.updateFirstName();
+  // alert(newFirstName.value);
+  userStore.updateFirstName(selectedUser.id, newFirstName.value);
+  // if (selectedUser && newFirstName.value) {
+  //   userStore.updateFirstName(selectedUser.id, newFirstName.value);
+  // }
 };
 </script>

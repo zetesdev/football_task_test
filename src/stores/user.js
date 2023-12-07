@@ -11,8 +11,6 @@ export const useUserStore = defineStore('user', {
     },
 
     updateFirstName() {
-      console.log(this.users[2].first_name);
-
       //some tests
       const randomLetter = String.fromCharCode(
         65 + Math.floor(Math.random() * 26)
@@ -20,6 +18,8 @@ export const useUserStore = defineStore('user', {
       if (this.users.length > 2 && this.users[2]) {
         this.users[2].first_name = randomLetter;
       }
+
+      console.log(this.users[2].first_name);
     },
   },
 });

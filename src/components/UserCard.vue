@@ -24,7 +24,7 @@
       <!-- avatar card -->
       <div>
         <img
-          src="https://reqres.in/img/faces/7-image.jpg"
+          :src="selectedUser ? selectedUser.avatar : DEFAULT_AVATAR"
           alt="should be avatar"
           class="w-20 h-20 rounded-full mr-4"
         />
@@ -46,15 +46,13 @@ const props = defineProps({
 const panel = props.cardType !== 'Add User' ? 'Edit User' : 'Add User';
 const action = props.cardType !== 'Add User' ? 'Update Details' : 'Add User';
 
-// const userStore = useUserStore();
+const DEFAULT_AVATAR =
+  'https://www.shareicon.net/data/128x128/2015/09/24/106423_user_512x512.png';
 
-console.log(props.cardType);
-// console.log(action);
-// console.log(userStore.users);
+const userStore = useUserStore();
+const selectedUser = userStore.users.find(
+  (user) => user.id.toString() === props.cardType
+);
 
-// const selectedUser = userStore.users.find(
-//   (user) => user.id.toString() === props.cardType
-// );
-
-// console.log(selectedUser);
+console.log(selectedUser);
 </script>

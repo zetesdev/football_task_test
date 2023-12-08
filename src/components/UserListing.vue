@@ -2,17 +2,19 @@
   <div class="pt-10">
     <h1 class="text-3xl">User List</h1>
     <div class="bg-white rounded-md p-5 mt-5 shadow">
-      <div class="flex justify-between items-center py-7">
+      <div
+        class="flex justify-between items-center first-line:items-center py-7"
+      >
         <input
           type="text"
           placeholder="Search for users"
-          class="bg-gray-100 w-1/4"
+          class="bg-gray-100 w-1/4 py-1 pl-3 rounded-md"
         />
         <router-link
           :to="`/edit/${encodeURIComponent('Add User')}`"
-          class="bg-green-600 rounded-full p-1 text-white ml-4"
-        >
-          + Add User
+          class="bg-green-600 rounded-full px-4 py-1 text-white ml-4 text-sm font-semibold flex items-center justify-center"
+          ><h2 class="text-xl mr-3 mb-1">+</h2>
+          <h2>Add User</h2>
         </router-link>
       </div>
       <ul>

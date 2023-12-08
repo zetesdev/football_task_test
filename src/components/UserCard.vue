@@ -70,6 +70,6 @@ const updateUser = () => {
 };
 
 const newUser = () => {
-  userStore.addUser(newFirstName.value, newLastName.value);
+  userStore.addUser(newFirstName.value, newLastName.value, DEFAULT_AVATAR);
 };
 </script>

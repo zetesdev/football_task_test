@@ -1,44 +1,51 @@
 <template>
-  <div class="">
+  <div class="pt-10">
     <h1 class="text-3xl">User List</h1>
-    <div class="bg-white rounded-md p-5 mt-5">
-      <div class="py-7">
+    <div class="bg-white rounded-md p-5 mt-5 shadow">
+      <div class="flex justify-between items-center py-7">
         <input
           type="text"
           placeholder="Search for users"
-          class="bg-gray-100 p-1"
+          class="bg-gray-100 w-1/4"
         />
         <router-link
           :to="`/edit/${encodeURIComponent('Add User')}`"
-          class="bg-green-600 rounded-full p-1 text-white"
-          >+ Add User</router-link
+          class="bg-green-600 rounded-full p-1 text-white ml-4"
         >
+          + Add User
+        </router-link>
       </div>
-      <ul class="">
-        <li class="ml-20 font-semibold flex">
+      <ul>
+        <li class="flex justify-between p-1.5 font-semibold shadow">
           <h2>Full Name</h2>
-          <h2>Action</h2>
+          <h2 class="pr-10">Action</h2>
         </li>
         <li
           v-for="user in paginatedUsers"
           :key="user.id"
-          class="flex p-1.5 items-center"
+          class="flex justify-between p-1.5 items-center"
         >
-          <img
-            :src="user.avatar"
-            alt="should be avatar"
-            class="w-10 h-10 rounded-full"
-          />
-          <h2 class="ml-10">{{ user.first_name }} {{ user.last_name }}</h2>
-          <!-- actions to the right -->
-          <div>
+          <div class="flex items-center">
+            <img
+              :src="user.avatar"
+              alt="User avatar"
+              class="w-10 h-10 rounded-full mr-4"
+            />
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+          </div>
+          <!-- Actions to the right -->
+          <div class="ml-auto pr-10">
             <router-link
               :to="`/edit/${encodeURIComponent(user.id)}`"
-              class="bg-green-500"
-              >edit</router-link
+              class="text-blue-500 hover:text-blue-600 mr-2"
             >
-            <button class="bg-red-500" @click="deleteUser(user.id)">
-              delete
+              edi
+            </router-link>
+            <button
+              class="text-red-500 hover:text-red-600"
+              @click="deleteUser(user.id)"
+            >
+              del
             </button>
           </div>
         </li>
@@ -46,20 +53,24 @@
     </div>
   </div>
 
-  <!-- pagination -->
-  <div class="bg-white p-2 mt-4 inline-block">
+  <!-- pagination -to do -> external component -->
+  <div
+    class="bg-white font-semibold rounded-sm mt-4 inline-block text-green-600"
+  >
     <button
       @click="changePage(-1)"
       :class="{ 'opacity-50 cursor-not-allowed': currentPage === 1 }"
       :disabled="currentPage === 1"
+      class="w-8 h-8 border"
     >
-      Prev
+      &lt;&lt;
     </button>
 
     <button
       v-for="page in totalPages"
       :key="page"
-      :class="{ 'font-bold': currentPage === page }"
+      :class="{ 'bg-green-500 text-white': currentPage === page }"
+      class="w-8 h-8 border"
       @click="jumpToPage(page)"
     >
       {{ page }}
@@ -69,8 +80,9 @@
       @click="changePage(1)"
       :class="{ 'opacity-50 cursor-not-allowed': currentPage === totalPages }"
       :disabled="currentPage === totalPages"
+      class="w-8 h-8 border"
     >
-      Next
+      &gt;&gt;
     </button>
   </div>
 </template>

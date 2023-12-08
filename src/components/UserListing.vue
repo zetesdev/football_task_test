@@ -1,66 +1,77 @@
 <template>
-  <div class="bg-white">
-    <h1 class="text-2xl">User List</h1>
-    <div>
-      <div>
-        <input type="text" placeholder="Search for users" class="bg-gray-200" />
+  <div class="">
+    <h1 class="text-3xl">User List</h1>
+    <div class="bg-white rounded-md p-5 mt-5">
+      <div class="py-7">
+        <input
+          type="text"
+          placeholder="Search for users"
+          class="bg-gray-100 p-1"
+        />
         <router-link
           :to="`/edit/${encodeURIComponent('Add User')}`"
-          class="bg-green-500 rounded-md p-2"
+          class="bg-green-600 rounded-full p-1 text-white"
           >+ Add User</router-link
         >
       </div>
-      <ul>
+      <ul class="">
+        <li class="ml-20 font-semibold flex">
+          <h2>Full Name</h2>
+          <h2>Action</h2>
+        </li>
         <li
           v-for="user in paginatedUsers"
           :key="user.id"
-          class="flex items-center"
+          class="flex p-1.5 items-center"
         >
-          <!-- <li v-for="user in users" :key="user.id" class="flex items-center"> -->
           <img
             :src="user.avatar"
             alt="should be avatar"
-            class="w-10 h-10 rounded-full mr-4"
+            class="w-10 h-10 rounded-full"
           />
-          {{ user.first_name }} {{ user.last_name }} ID: {{ user.id }}
-          <router-link
-            :to="`/edit/${encodeURIComponent(user.id)}`"
-            class="bg-green-500"
-            >edit</router-link
-          >
-          <button class="bg-red-500" @click="deleteUser(user.id)">
-            delete
-          </button>
+          <h2 class="ml-10">{{ user.first_name }} {{ user.last_name }}</h2>
+          <!-- actions to the right -->
+          <div>
+            <router-link
+              :to="`/edit/${encodeURIComponent(user.id)}`"
+              class="bg-green-500"
+              >edit</router-link
+            >
+            <button class="bg-red-500" @click="deleteUser(user.id)">
+              delete
+            </button>
+          </div>
         </li>
       </ul>
     </div>
+  </div>
 
-    <div>
-      <button
-        @click="changePage(-1)"
-        :class="{ 'opacity-50 cursor-not-allowed': currentPage === 1 }"
-        :disabled="currentPage === 1"
-      >
-        Prev
-      </button>
+  <!-- pagination -->
+  <div class="bg-white p-2 mt-4 inline-block">
+    <button
+      @click="changePage(-1)"
+      :class="{ 'opacity-50 cursor-not-allowed': currentPage === 1 }"
+      :disabled="currentPage === 1"
+    >
+      Prev
+    </button>
 
-      <button
-        v-for="page in totalPages"
-        :key="page"
-        :class="{ 'font-bold': currentPage === page }"
-        @click="jumpToPage(page)"
-      >
-        {{ page }}
-      </button>
+    <button
+      v-for="page in totalPages"
+      :key="page"
+      :class="{ 'font-bold': currentPage === page }"
+      @click="jumpToPage(page)"
+    >
+      {{ page }}
+    </button>
 
-      <button
-        @click="changePage(1)"
-        :class="{ 'opacity-50 cursor-not-allowed': currentPage === totalPages }"
-        :disabled="currentPage === totalPages"
-      >
-        Next
-      </button>
-    </div>
+    <button
+      @click="changePage(1)"
+      :class="{ 'opacity-50 cursor-not-allowed': currentPage === totalPages }"
+      :disabled="currentPage === totalPages"
+    >
+      Next
+    </button>
   </div>
 </template>
 

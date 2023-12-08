@@ -1,7 +1,6 @@
 <template>
-  <div class="bg-gray-200 h-screen">
-    <h1>{{ panel }}</h1>
-
+  <h1 class="text-2xl">{{ panel }}</h1>
+  <div class="flex">
     <div class="bg-white">
       <!-- inputs card -->
       <div class="">
@@ -31,7 +30,7 @@
       </div>
     </div>
     <!-- avatar card -->
-    <div class="m-4 bg-white">
+    <div class="bg-white">
       <img
         :src="selectedUser ? selectedUser.avatar : DEFAULT_AVATAR"
         alt="should be avatar"
@@ -53,8 +52,8 @@ const props = defineProps({
 const DEFAULT_AVATAR =
   'https://www.shareicon.net/data/128x128/2015/09/24/106423_user_512x512.png';
 
-const panel = props.cardType !== 'Add User' ? 'Edit User' : 'Add User';
-const action = props.cardType !== 'Add User' ? 'Update Details' : 'Add User';
+const panel = props.cardType !== 'Add User' ? 'Edit User' : 'Add user';
+const action = props.cardType !== 'Add User' ? 'Update Details' : 'Add user';
 
 const userStore = useUserStore();
 const selectedUser = userStore.users.find(

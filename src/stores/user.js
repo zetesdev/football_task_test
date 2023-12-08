@@ -24,8 +24,13 @@ export const useUserStore = defineStore('user', {
       }
     },
     addUser(newFirstName, newLastName) {
+      const newId =
+        this.users.length > 0
+          ? Math.max(...this.users.map((u) => u.id)) + 1
+          : 1;
+
       const newUser = {
-        id: 100,
+        id: newId,
         first_name: newFirstName,
         last_name: newLastName,
         avatar: 'https://reqres.in/img/faces/11-image.jpg',

@@ -11,7 +11,12 @@
         >
       </div>
       <ul>
-        <li v-for="user in users" :key="user.id" class="flex items-center">
+        <li
+          v-for="user in paginatedUsers"
+          :key="user.id"
+          class="flex items-center"
+        >
+          <!-- <li v-for="user in users" :key="user.id" class="flex items-center"> -->
           <img
             :src="user.avatar"
             alt="should be avatar"
@@ -23,18 +28,44 @@
             class="bg-green-500"
             >edit</router-link
           >
-          <!-- <button class="bg-orange-500" @click="newUser">TEST NEW USER</button> -->
           <button class="bg-red-500" @click="deleteUser(user.id)">
             delete
           </button>
         </li>
       </ul>
     </div>
+
+    <div>
+      <button
+        @click="changePage(-1)"
+        :class="{ 'opacity-50 cursor-not-allowed': currentPage === 1 }"
+        :disabled="currentPage === 1"
+      >
+        Prev
+      </button>
+
+      <button
+        v-for="page in totalPages"
+        :key="page"
+        :class="{ 'font-bold': currentPage === page }"
+        @click="jumpToPage(page)"
+      >
+        {{ page }}
+      </button>
+
+      <button
+        @click="changePage(1)"
+        :class="{ 'opacity-50 cursor-not-allowed': currentPage === totalPages }"
+        :disabled="currentPage === totalPages"
+      >
+        Next
+      </button>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useUserStore } from '@/stores/user.js';
 
 const userStore = useUserStore();
@@ -62,16 +93,34 @@ onMounted(async () => {
 
 const users = computed(() => userStore.users);
 
-// const editUser = () => {
-//   userStore.updateFirstName();
-// };
-
-// const newUser = () => {
-//   userStore.addUser();
-// };
-
 const deleteUser = (userId) => {
   console.log('Delete user with ID:', userId);
   userStore.deleteUser(userId);
+};
+
+//PAGINATION / TO DO - export as composable
+const currentPage = ref(1);
+const usersPerPage = ref(4);
+
+const paginatedUsers = computed(() => {
+  const start = (currentPage.value - 1) * usersPerPage.value;
+  const end = start + usersPerPage.value;
+  return userStore.users.slice(start, end);
+});
+
+const changePage = (delta) => {
+  const nextPage = currentPage.value + delta;
+  const totalPages = Math.ceil(userStore.users.length / usersPerPage.value);
+  if (nextPage >= 1 && nextPage <= totalPages) {
+    currentPage.value = nextPage;
+  }
+};
+
+const totalPages = computed(() => {
+  return Math.ceil(userStore.users.length / usersPerPage.value);
+});
+
+const jumpToPage = (page) => {
+  currentPage.value = page;
 };
 </script>

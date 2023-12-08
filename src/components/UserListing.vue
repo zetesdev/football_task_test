@@ -17,7 +17,7 @@
       </div>
       <ul>
         <li class="flex justify-between p-1.5 font-semibold shadow">
-          <h2>Full Name</h2>
+          <h2 class="pl-24">Full Name</h2>
           <h2 class="pr-10">Action</h2>
         </li>
         <li
@@ -29,7 +29,7 @@
             <img
               :src="user.avatar"
               alt="User avatar"
-              class="w-10 h-10 rounded-full mr-4"
+              class="w-10 h-10 rounded-full mr-11 ml-3"
             />
             <h2>{{ user.first_name }} {{ user.last_name }}</h2>
           </div>
@@ -63,7 +63,7 @@
       :disabled="currentPage === 1"
       class="w-8 h-8 border"
     >
-      &lt;&lt;
+      &lt;
     </button>
 
     <button
@@ -82,7 +82,7 @@
       :disabled="currentPage === totalPages"
       class="w-8 h-8 border"
     >
-      &gt;&gt;
+      &gt;
     </button>
   </div>
 </template>

@@ -13,7 +13,7 @@
             type="text"
             v-model="newFirstName"
             placeholder="enter first name"
-            class="bg-gray-100 mt-2 p-1 w-full"
+            class="bg-gray-100 mt-2 p-1 w-full border border-gray-300 rounded-sm"
           />
         </div>
 
@@ -24,7 +24,7 @@
             type="text"
             v-model="newLastName"
             placeholder="enter last name"
-            class="bg-gray-100 mt-2 p-1 w-full"
+            class="bg-gray-100 mt-2 p-1 w-full border border-gray-300 rounded-sm"
           />
         </div>
       </div>
@@ -41,13 +41,17 @@
       </div>
     </div>
     <!-- avatar card -->
-    <div class="bg-white rounded-md w-1/3 p-5 ml-5 shadow">
+    <div
+      class="bg-white rounded-md w-1/3 p-5 ml-5 shadow flex flex-col items-center"
+    >
       <img
         :src="selectedUser ? selectedUser.avatar : DEFAULT_AVATAR"
-        alt="should be avatar"
-        class="w-20 h-20 rounded-full mr-4"
+        alt="User avatar"
+        class="w-32 h-32 rounded-full"
       />
-      <button class="bg-gray-300">change photo</button>
+      <button class="w-full rounded-md border border-gray-400 p-1 mt-auto">
+        Change Photo
+      </button>
     </div>
   </div>
 </template>

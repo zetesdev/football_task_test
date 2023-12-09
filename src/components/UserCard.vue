@@ -50,8 +50,11 @@
         />
       </div>
 
-      <button class="w-full rounded-md border border-gray-400 p-1 mt-4">
-        Change Photo
+      <button
+        class="w-full rounded-md border border-gray-400 p-1 mt-4"
+        @click="changeButtonText"
+      >
+        {{ buttonText }}
       </button>
     </div>
   </div>
@@ -87,4 +90,12 @@ const updateUser = () => {
 const newUser = () => {
   userStore.addUser(newFirstName.value, newLastName.value, DEFAULT_AVATAR);
 };
+
+// TEMP SOLUTION TO DO BUTTOn
+const buttonText = ref('Change Photo');
+
+function changeButtonText() {
+  buttonText.value =
+    buttonText.value === 'Change Photo' ? 'To be implemented' : 'Change Photo';
+}
 </script>

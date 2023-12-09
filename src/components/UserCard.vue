@@ -42,14 +42,19 @@
     </div>
     <!-- avatar card -->
     <div
-      class="bg-white rounded-md w-1/3 p-5 ml-5 shadow flex flex-col items-center"
+      class="bg-white rounded-md w-1/3 p-5 ml-5 shadow flex flex-col items-center justify-between h-full"
     >
-      <img
-        :src="selectedUser ? selectedUser.avatar : DEFAULT_AVATAR"
-        alt="User avatar"
-        class="w-32 h-32 rounded-full"
-      />
-      <button class="w-full rounded-md border border-gray-400 p-1 mt-auto">
+      <!-- Kontener dla obrazka -->
+      <div class="flex flex-col items-center justify-center flex-grow">
+        <img
+          :src="selectedUser ? selectedUser.avatar : DEFAULT_AVATAR"
+          alt="User avatar"
+          class="w-32 h-32 rounded-full"
+        />
+      </div>
+
+      <!-- Przycisk -->
+      <button class="w-full rounded-md border border-gray-400 p-1 mt-4">
         Change Photo
       </button>
     </div>

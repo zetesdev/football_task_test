@@ -54,6 +54,7 @@
         class="w-full rounded-md border border-gray-400 p-1 mt-4"
         @click="changeButtonText"
       >
+        <font-awesome-icon :icon="['fas', 'camera']" />
         {{ buttonText }}
       </button>
     </div>

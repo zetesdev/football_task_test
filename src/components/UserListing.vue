@@ -5,14 +5,20 @@
       <div
         class="flex justify-between items-center first-line:items-center py-7"
       >
-        <input
-          type="text"
-          placeholder="Search for users"
-          class="bg-gray-100 w-1/4 py-1 pl-3 rounded-md"
-        />
+        <div class="relative w-1/4">
+          <input
+            type="text"
+            placeholder="Search for users..."
+            class="bg-gray-100 w-full py-1 pl-3 pr-8 rounded-md"
+          />
+          <font-awesome-icon
+            :icon="['fas', 'search']"
+            class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500"
+          />
+        </div>
         <router-link
           :to="`/edit/${encodeURIComponent('Add User')}`"
-          class="bg-green-600 rounded-full px-4 py-1 text-white ml-4 text-sm font-semibold flex items-center justify-center"
+          class="bg-green-600 rounded-full px-4 py-1 text-white ml-4 text-sm font-semibold flex items-center justify-center hover:scale-105 transition-transform"
           ><h2 class="text-xl mr-3 mb-1">+</h2>
           <h2>Add User</h2>
         </router-link>
@@ -39,15 +45,15 @@
           <div class="ml-auto pr-10">
             <router-link
               :to="`/edit/${encodeURIComponent(user.id)}`"
-              class="text-blue-500 hover:text-blue-600 mr-2"
+              class="text-gray-400 hover:text-gray-500 mr-4"
             >
-              edi
+              <font-awesome-icon :icon="['fas', 'pen-to-square']" />
             </router-link>
             <button
-              class="text-red-500 hover:text-red-600"
+              class="text-gray-400 hover:text-gray-500"
               @click="deleteUser(user.id)"
             >
-              del
+              <font-awesome-icon :icon="['fas', 'trash']" />
             </button>
           </div>
         </li>
@@ -63,7 +69,7 @@
       @click="changePage(-1)"
       :class="{ 'opacity-50 cursor-not-allowed': currentPage === 1 }"
       :disabled="currentPage === 1"
-      class="w-8 h-8 border"
+      class="w-8 h-8 border hover:scale-105 transition-transform"
     >
       &lt;
     </button>
@@ -72,7 +78,7 @@
       v-for="page in totalPages"
       :key="page"
       :class="{ 'bg-green-500 text-white': currentPage === page }"
-      class="w-8 h-8 border"
+      class="w-8 h-8 border hover:scale-105 transition-transform"
       @click="jumpToPage(page)"
     >
       {{ page }}
@@ -82,7 +88,7 @@
       @click="changePage(1)"
       :class="{ 'opacity-50 cursor-not-allowed': currentPage === totalPages }"
       :disabled="currentPage === totalPages"
-      class="w-8 h-8 border"
+      class="w-8 h-8 border hover:scale-105 transition-transform"
     >
       &gt;
     </button>
@@ -123,7 +129,7 @@ const deleteUser = (userId) => {
   userStore.deleteUser(userId);
 };
 
-//PAGINATION / TO DO - export as composable
+//PAGINATION / TO DO - maybe export as composable
 const currentPage = ref(1);
 const usersPerPage = ref(4);
 

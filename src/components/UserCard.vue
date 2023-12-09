@@ -6,7 +6,6 @@
       class="bg-white w-2/3 p-5 rounded-md shadow flex flex-col justify-between h-full"
     >
       <div class="flex">
-        <!-- Div dla First Name -->
         <div class="flex-1 pr-3">
           <h2 class="font-semibold">First Name</h2>
           <input
@@ -17,7 +16,6 @@
           />
         </div>
 
-        <!-- Div dla Last Name -->
         <div class="flex-1 pl-3">
           <h2 class="font-semibold">Last Name</h2>
           <input
@@ -29,7 +27,6 @@
         </div>
       </div>
 
-      <!-- Div dla Router Link -->
       <div class="mt-auto">
         <router-link
           to="/"
@@ -44,7 +41,7 @@
     <div
       class="bg-white rounded-md w-1/3 p-5 ml-5 shadow flex flex-col items-center justify-between h-full"
     >
-      <!-- Kontener dla obrazka -->
+      <!-- picture -->
       <div class="flex flex-col items-center justify-center flex-grow">
         <img
           :src="selectedUser ? selectedUser.avatar : DEFAULT_AVATAR"
@@ -53,7 +50,6 @@
         />
       </div>
 
-      <!-- Przycisk -->
       <button class="w-full rounded-md border border-gray-400 p-1 mt-4">
         Change Photo
       </button>

@@ -2,10 +2,8 @@
   <div class="pt-10">
     <h1 class="text-3xl">User List</h1>
     <div class="bg-white rounded-md p-5 mt-5 shadow">
-      <div
-        class="flex justify-between items-center first-line:items-center py-7"
-      >
-        <div class="relative w-1/4">
+      <div class="md:flex justify-between items-center md:py-7">
+        <div class="relative md:w-1/4">
           <input
             type="text"
             placeholder="Search for users..."
@@ -24,14 +22,14 @@
         </router-link>
       </div>
       <ul>
-        <li class="flex justify-between p-1.5 font-semibold shadow">
+        <li class="md:flex justify-between p-1.5 font-semibold shadow">
           <h2 class="pl-24">Full Name</h2>
           <h2 class="pr-10">Action</h2>
         </li>
         <li
           v-for="user in paginatedUsers"
           :key="user.id"
-          class="flex justify-between p-1.5 items-center"
+          class="md:flex justify-between p-1.5 items-center"
         >
           <div class="flex items-center">
             <img
@@ -61,7 +59,7 @@
     </div>
   </div>
 
-  <!-- pagination -TO DO -> should be external component -->
+  <!-- pagination -->
   <div
     class="bg-white font-semibold rounded-sm mt-4 inline-flex text-green-600"
   >

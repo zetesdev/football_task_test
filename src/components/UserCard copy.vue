@@ -1,28 +1,28 @@
 <template>
   <h1 class="text-3xl pt-10">{{ panel }}</h1>
-  <div class="md:flex h-72 mt-5">
+  <div class="flex h-72 mt-5">
     <!-- inputs card -->
     <div
-      class="bg-white md:w-2/3 p-5 rounded-md shadow md:flex md:flex-col justify-between h-full"
+      class="bg-white w-2/3 p-5 rounded-md shadow flex flex-col justify-between h-full"
     >
-      <div class="md:flex">
-        <div class="flex-1 md:pr-3">
+      <div class="flex">
+        <div class="flex-1 pr-3">
           <h2 class="font-semibold">First Name</h2>
           <input
             type="text"
             v-model="newFirstName"
             placeholder="enter first name"
-            class="bg-gray-100 mt-2 p-1 md:w-full border border-gray-300 rounded-sm"
+            class="bg-gray-100 mt-2 p-1 w-full border border-gray-300 rounded-sm"
           />
         </div>
 
-        <div class="flex-1 md:pl-3">
+        <div class="flex-1 pl-3">
           <h2 class="font-semibold">Last Name</h2>
           <input
             type="text"
             v-model="newLastName"
             placeholder="enter last name"
-            class="bg-gray-100 mt-2 p-1 md:w-full border border-gray-300 rounded-sm"
+            class="bg-gray-100 mt-2 p-1 w-full border border-gray-300 rounded-sm"
           />
         </div>
       </div>
@@ -39,10 +39,10 @@
     </div>
     <!-- avatar card -->
     <div
-      class="bg-white rounded-md md:w-1/3 p-5 ml-5 shadow md:flex md:flex-col items-center justify-between h-full"
+      class="bg-white rounded-md w-1/3 p-5 ml-5 shadow flex flex-col items-center justify-between h-full"
     >
       <!-- picture -->
-      <div class="md:flex md:flex-col items-center justify-center md:flex-grow">
+      <div class="flex flex-col items-center justify-center flex-grow">
         <img
           :src="selectedUser ? selectedUser.avatar : DEFAULT_AVATAR"
           alt="User avatar"
@@ -51,7 +51,7 @@
       </div>
 
       <button
-        class="md:w-full rounded-md border border-gray-400 p-1 mt-4"
+        class="w-full rounded-md border border-gray-400 p-1 mt-4"
         @click="changeButtonText"
       >
         <font-awesome-icon :icon="['fas', 'camera']" />

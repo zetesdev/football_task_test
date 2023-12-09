@@ -63,22 +63,22 @@
 
   <!-- pagination -TO DO -> should be external component -->
   <div
-    class="bg-white font-semibold rounded-sm mt-4 inline-block text-green-600"
+    class="bg-white font-semibold rounded-sm mt-4 inline-flex text-green-600"
   >
     <button
       @click="changePage(-1)"
       :class="{ 'opacity-50 cursor-not-allowed': currentPage === 1 }"
       :disabled="currentPage === 1"
-      class="w-8 h-8 border hover:scale-105 transition-transform"
+      class="w-8 h-8 border hover:scale-105 transition-transform flex items-center justify-center"
     >
-      &lt;
+      <font-awesome-icon :icon="['fas', 'angles-left']" class="text-xs" />
     </button>
 
     <button
       v-for="page in totalPages"
       :key="page"
       :class="{ 'bg-green-500 text-white': currentPage === page }"
-      class="w-8 h-8 border hover:scale-105 transition-transform"
+      class="w-8 h-8 border hover:scale-105 transition-transform flex items-center justify-center"
       @click="jumpToPage(page)"
     >
       {{ page }}
@@ -88,9 +88,9 @@
       @click="changePage(1)"
       :class="{ 'opacity-50 cursor-not-allowed': currentPage === totalPages }"
       :disabled="currentPage === totalPages"
-      class="w-8 h-8 border hover:scale-105 transition-transform"
+      class="w-8 h-8 border hover:scale-105 transition-transform flex items-center justify-center"
     >
-      &gt;
+      <font-awesome-icon :icon="['fas', 'angles-right']" class="text-xs" />
     </button>
   </div>
 </template>

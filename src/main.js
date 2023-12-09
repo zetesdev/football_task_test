@@ -9,6 +9,8 @@ import {
   faCamera,
   faPenToSquare,
   faTrash,
+  faAnglesRight,
+  faAnglesLeft,
 } from '@fortawesome/free-solid-svg-icons';
 
 import router from './router';
@@ -18,6 +20,8 @@ library.add(faSearch);
 library.add(faCamera);
 library.add(faPenToSquare);
 library.add(faTrash);
+library.add(faAnglesLeft);
+library.add(faAnglesRight);
 
 const pinia = createPinia();
 const app = createApp(App);

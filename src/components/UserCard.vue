@@ -1,36 +1,47 @@
 <template>
-  <h1 class="text-2xl">{{ panel }}</h1>
-  <div class="flex">
-    <div class="bg-white">
-      <!-- inputs card -->
-      <div class="">
-        <h2>First Name</h2>
-        <input
-          type="text"
-          v-model="newFirstName"
-          placeholder="enter first name"
-          class="bg-gray-100"
-        />
-        <h2>Last name</h2>
-        <input
-          type="text"
-          v-model="newLastName"
-          placeholder="enter last name"
-          class="bg-gray-100"
-        />
-        <div>
-          <router-link
-            to="/"
-            @click="action === 'Update Details' ? updateUser() : newUser()"
-            class="bg-green-500"
-          >
-            {{ action }}
-          </router-link>
+  <h1 class="text-3xl pt-10">{{ panel }}</h1>
+  <div class="flex h-72 mt-5">
+    <!-- inputs card -->
+    <div
+      class="bg-white w-2/3 p-5 rounded-md shadow flex flex-col justify-between h-full"
+    >
+      <div class="flex">
+        <!-- Div dla First Name -->
+        <div class="flex-1 pr-3">
+          <h2 class="font-semibold">First Name</h2>
+          <input
+            type="text"
+            v-model="newFirstName"
+            placeholder="enter first name"
+            class="bg-gray-100 mt-2 p-1 w-full"
+          />
         </div>
+
+        <!-- Div dla Last Name -->
+        <div class="flex-1 pl-3">
+          <h2 class="font-semibold">Last Name</h2>
+          <input
+            type="text"
+            v-model="newLastName"
+            placeholder="enter last name"
+            class="bg-gray-100 mt-2 p-1 w-full"
+          />
+        </div>
+      </div>
+
+      <!-- Div dla Router Link -->
+      <div class="mt-auto">
+        <router-link
+          to="/"
+          @click="action === 'Update Details' ? updateUser() : newUser()"
+          class="bg-green-600 text-white py-2 px-4 rounded"
+        >
+          {{ action }}
+        </router-link>
       </div>
     </div>
     <!-- avatar card -->
-    <div class="bg-white">
+    <div class="bg-white rounded-md w-1/3 p-5 ml-5 shadow">
       <img
         :src="selectedUser ? selectedUser.avatar : DEFAULT_AVATAR"
         alt="should be avatar"

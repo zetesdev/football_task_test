@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <!-- pagination -to do -> external component -->
+  <!-- pagination -TO DO -> should be external component -->
   <div
     class="bg-white font-semibold rounded-sm mt-4 inline-block text-green-600"
   >

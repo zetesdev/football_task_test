@@ -1,9 +1,9 @@
 <template>
-  <h1 class="text-3xl pt-10">{{ panel }}</h1>
-  <div class="md:flex h-72 mt-5">
+  <h1 class="text-3xl pt-3 md:pt-10">{{ panel }}</h1>
+  <div class="md:flex h-72 mt-3 md:mt-5">
     <!-- inputs card -->
     <div
-      class="bg-white md:w-2/3 p-5 rounded-md shadow md:flex md:flex-col justify-between h-full"
+      class="bg-white md:w-2/3 p-5 rounded-md shadow md:flex md:flex-col justify-between md:h-full"
     >
       <div class="md:flex">
         <div class="flex-1 md:pr-3">
@@ -12,22 +12,22 @@
             type="text"
             v-model="newFirstName"
             placeholder="enter first name"
-            class="bg-gray-100 mt-2 p-1 md:w-full border border-gray-300 rounded-sm"
+            class="bg-gray-100 mt-2 p-1 w-full border border-gray-300 rounded-sm"
           />
         </div>
 
         <div class="flex-1 md:pl-3">
-          <h2 class="font-semibold">Last Name</h2>
+          <h2 class="font-semibold mt-2 md:mt-0">Last Name</h2>
           <input
             type="text"
             v-model="newLastName"
             placeholder="enter last name"
-            class="bg-gray-100 mt-2 p-1 md:w-full border border-gray-300 rounded-sm"
+            class="bg-gray-100 mt-2 p-1 w-full border border-gray-300 rounded-sm"
           />
         </div>
       </div>
 
-      <div class="mt-auto">
+      <div class="mt-5 md:mt-auto">
         <router-link
           to="/"
           @click="action === 'Update Details' ? updateUser() : newUser()"
@@ -39,10 +39,12 @@
     </div>
     <!-- avatar card -->
     <div
-      class="bg-white rounded-md md:w-1/3 p-5 ml-5 shadow md:flex md:flex-col items-center justify-between h-full"
+      class="bg-white rounded-md md:w-1/3 p-5 mt-2 md:ml-5 md:mt-0 shadow md:flex md:flex-col items-center justify-between md:h-full"
     >
       <!-- picture -->
-      <div class="md:flex md:flex-col items-center justify-center md:flex-grow">
+      <div
+        class="flex md:flex md:flex-col items-center justify-center md:flex-grow"
+      >
         <img
           :src="selectedUser ? selectedUser.avatar : DEFAULT_AVATAR"
           alt="User avatar"
@@ -51,7 +53,7 @@
       </div>
 
       <button
-        class="md:w-full rounded-md border border-gray-400 p-1 mt-4"
+        class="w-full rounded-md border border-gray-400 p-1 mt-4"
         @click="changeButtonText"
       >
         <font-awesome-icon :icon="['fas', 'camera']" />

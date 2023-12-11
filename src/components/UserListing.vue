@@ -1,7 +1,7 @@
 <template>
-  <div class="pt-10">
+  <div class="pt-3 md:pt-10">
     <h1 class="text-3xl">User List</h1>
-    <div class="bg-white rounded-md p-5 mt-5 shadow">
+    <div class="bg-white rounded-md p-5 mt-3 md:mt-5 shadow">
       <div class="md:flex justify-between items-center md:py-7">
         <div class="relative md:w-1/2 xl:w-1/3">
           <input

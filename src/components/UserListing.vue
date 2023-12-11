@@ -3,7 +3,7 @@
     <h1 class="text-3xl">User List</h1>
     <div class="bg-white rounded-md p-5 mt-5 shadow">
       <div class="md:flex justify-between items-center md:py-7">
-        <div class="relative md:w-1/4">
+        <div class="relative md:w-1/2 xl:w-1/3">
           <input
             type="text"
             placeholder="Search for users..."
@@ -16,7 +16,7 @@
         </div>
         <router-link
           :to="`/edit/${encodeURIComponent('Add User')}`"
-          class="bg-green-600 rounded-full px-4 py-1 text-white ml-4 text-sm font-semibold flex items-center justify-center hover:scale-105 transition-transform"
+          class="bg-green-600 rounded-full px-4 py-1 text-white ml-4 my-2 md:my-0 text-sm font-semibold flex items-center justify-center hover:scale-105 transition-transform"
           ><h2 class="text-xl mr-3 mb-1">+</h2>
           <h2>Add User</h2>
         </router-link>

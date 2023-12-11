@@ -22,20 +22,20 @@
         </router-link>
       </div>
       <ul>
-        <li class="md:flex justify-between p-1.5 font-semibold shadow">
-          <h2 class="pl-24">Full Name</h2>
+        <li class="flex md:flex justify-between p-1.5 font-semibold shadow">
+          <h2 class="pl-14 md:pl-24">Full Name</h2>
           <h2 class="pr-10">Action</h2>
         </li>
         <li
           v-for="user in paginatedUsers"
           :key="user.id"
-          class="md:flex justify-between p-1.5 items-center"
+          class="flex md:flex justify-between p-1.5 items-center"
         >
           <div class="flex items-center">
             <img
               :src="user.avatar"
               alt="User avatar"
-              class="w-10 h-10 rounded-full mr-11 ml-3"
+              class="w-10 h-10 rounded-full mr-2 md:mr-11 ml-3"
             />
             <h2>{{ user.first_name }} {{ user.last_name }}</h2>
           </div>
